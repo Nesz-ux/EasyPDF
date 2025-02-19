@@ -1,0 +1,109 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #242424;
+  color: white;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: "Lexend", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 22px;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.search-bar {
+  font-family: "Lexend", sans-serif;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 35px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode .search-bar {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.dark-mode .search-bar {
+  background-color: #333;
+  color: white;
+  border-color: #666;
+}
+
+.light-mode .search-bar:focus {
+  border-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+.dark-mode .search-bar:focus {
+  border-color: #fff;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.btn-change-mode {
+  background-color: #fff;
+  color: black;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+  height: 40px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-change-mode:hover {
+  background-color: #ccc;
+  border: 1px solid #aaa;
+}
+
+.dark-mode .btn-change-mode {
+  background-color: #333;
+  color: white;
+  border: 1px solid #666;
+}
+
+.dark-mode .btn-change-mode:hover {
+  background-color: #444;
+  border: 1px solid #ccc;
+}
