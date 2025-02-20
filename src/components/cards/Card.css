@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "ThirstyRoughRegTwo";
+    src: url("../fonts/ThirstyRoughRegTwo.otf") format("truetype");
+  }  
+
+.card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    min-height: 150px;
+  }
+  
+  .light-mode .card {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .dark-mode .card {
+    background-color: #333;
+    color: white;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: inherit;
+  }
+  
+  .card-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: inherit;
+  }
+  
+  .card-description {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: inherit;
+  }
+  
+  .image-container {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+  
+  .favorite-btn {
+    position: absolute;
+    top: 5px;
+    right: 1px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+  }
+  .favorite-btn:hover{
+    color: gold;
+    outline: none;
+  }
+  .favorite-btn:focus{
+    outline: none;
+  }
+  .favorite-btn:active{
+    outline: none;
+  }
+  
+  .card-link{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .card-link {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid {
+      flex-direction: column;
+    }
+  }
+  
+  .card-link:hover{
+    color: inherit;
+    outline: none;
+  }
+  
