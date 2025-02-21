@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from "react";
 // Import styles
 import "../assets/styles/HomeStyle.css";
 // Import images
@@ -11,7 +11,7 @@ import falseSearchWhite from "../assets/images/falseSearchWhite.json";
 import appsData from "../components/cards/cardsData";
 import Card from "../components/cards/Card";
 //Import packages
-import Lottie from 'lottie-react';
+import Lottie from "lottie-react";
 
 interface App {
   title: string;
@@ -24,14 +24,18 @@ interface App {
 const Home: React.FC = () => {
   const [favorites, setFavorites] = useState<App[]>([]);
   const [darkMode, setDarkMode] = useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [apps, setApps] = useState<App[]>(appsData);
 
   // Cargar estado inicial desde localStorage
   useEffect(() => {
     try {
-      const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-      const storedDarkMode = JSON.parse(localStorage.getItem("darkMode") || "false");
+      const storedFavorites = JSON.parse(
+        localStorage.getItem("favorites") || "[]"
+      );
+      const storedDarkMode = JSON.parse(
+        localStorage.getItem("darkMode") || "false"
+      );
       setFavorites(storedFavorites);
       setDarkMode(storedDarkMode);
     } catch (error) {
@@ -67,8 +71,8 @@ const Home: React.FC = () => {
         .toLowerCase();
 
       return (
-        (normalizedTitle.includes(normalizedSearch) || 
-        normalizedDescription.includes(normalizedSearch)) &&
+        (normalizedTitle.includes(normalizedSearch) ||
+          normalizedDescription.includes(normalizedSearch)) &&
         !favorites.some((fav) => fav.title === title)
       );
     });
@@ -102,7 +106,12 @@ const Home: React.FC = () => {
           className="search-bar"
         />
         <button className="btn-change-mode" onClick={handleChangeTheme}>
-          <img src={darkMode ? sun : moon} alt="theme-toggle" width={35} height={35} />
+          <img
+            src={darkMode ? sun : moon}
+            alt="theme-toggle"
+            width={35}
+            height={35}
+          />
         </button>
       </div>
 
@@ -125,7 +134,6 @@ const Home: React.FC = () => {
         </div>
       )}
 
-      
       {filteredApps.length > 0 ? (
         <div className="grid">
           {filteredApps.map((app, index) => (
@@ -142,7 +150,6 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <div className="no-results">
-          
           {!darkMode ? (
             <Lottie
               animationData={falseSearchBlack}
