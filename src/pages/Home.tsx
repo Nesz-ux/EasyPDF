@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react';
-// Importando estilos
+// Import styles
 import "../assets/styles/HomeStyle.css";
-// Importando imágenes
+// Import images
 import LogoDasavena from "../assets/images/LogoDasavena.png";
 import sun from "../assets/images/sol.webp";
 import moon from "../assets/images/luna.webp";
 import falseSearchBlack from "../assets/images/falseSearchBlack.json";
 import falseSearchWhite from "../assets/images/falseSearchWhite.json";
-// Importando componentes
+// Import components
 import appsData from "../components/cards/cardsData";
 import Card from "../components/cards/Card";
+//Import packages
+import Lottie from 'lottie-react';
 
 interface App {
   title: string;
@@ -140,14 +142,22 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <div className="no-results">
-          {/* Animación de Lottie (comentar si no está implementado) */}
-          {/* <Lottie
-            animationData={darkMode ? falseSearchWhite : falseSearchBlack}
-            autoplay
-            loop={false}
-            style={{ height: "200px", width: "200px" }}
-          /> */}
-          <div>No results found</div>
+          
+          {!darkMode ? (
+            <Lottie
+              animationData={falseSearchBlack}
+              autoplay
+              loop={false}
+              style={{ height: "200px", width: "200px" }}
+            />
+          ) : (
+            <Lottie
+              animationData={falseSearchWhite}
+              autoplay
+              loop={false}
+              style={{ height: "200px", width: "200px" }}
+            />
+          )}
         </div>
       )}
     </div>
