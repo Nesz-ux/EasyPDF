@@ -38,6 +38,7 @@ const Home: React.FC = () => {
       );
       setFavorites(storedFavorites);
       setDarkMode(storedDarkMode);
+      console.log(darkMode);
     } catch (error) {
       console.error("Error loading data from localStorage", error);
     }

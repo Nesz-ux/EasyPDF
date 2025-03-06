@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "Veneer";
+  src: url("../fonts/Veneer.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ThirstyRoughRegTwo";
+  src: url("../fonts/ThirstyRoughRegTwo.otf") format("truetype");
+}
+
+.containerUpload {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #242424;
+  color: white;
+}
+
+h1 {
+  font-family: "Veneer", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+input[type="file"] {
+  padding: 10px;
+  margin: 15px 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.light-mode input[type="file"] {
+  background-color: #fff;
+  color: #333;
+}
+
+.dark-mode input[type="file"] {
+  background-color: #444;
+  color: white;
+  border-color: #666;
+}
+
+.pdf-preview {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border: 1px solid #ccc;
+  margin-top: 15px;
+}
+
+.upload-btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.light-mode .upload-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.dark-mode .upload-btn {
+  background-color: #0056b3;
+  color: white;
+}
+
+.upload-btn:hover {
+  transform: scale(1.05);
+}
+
+.upload-btn:active {
+  transform: scale(0.95);
+}
