@@ -1,0 +1,68 @@
+/*Contenedor */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Formato Subir PDF*/
+.custom-file-upload {
+    font-family: 'Poppins', sans-serif;
+  height: 200px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  justify-content: center;
+  border: 2px dashed #e8e8e8;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.light-mode .custom-file-upload {
+    background-color: #103f91;
+    color: white;
+}
+
+.light-mode .custom-file-upload:hover {
+    background-color: #3e6cbb;
+}
+
+.dark-mode .custom-file-upload {
+    border: 2px dashed #FFF;
+    background-color: #a09f9f; 
+    color: #FFF;
+}
+
+.dark-mode .custom-file-upload:hover {
+    background-color: #b9b9b9; /* Rojo más oscuro */
+}
+/*Icono*/
+.custom-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-file-upload .icon svg {
+  height: 80px;
+}
+
+/*Contenedor Texto*/
+.custom-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Texto*/
+.custom-file-upload .text span {
+  font-weight: 400;
+}
+
+/*Input*/
+.custom-file-upload input {
+  display: none;
+}

@@ -8,87 +8,128 @@
   src: url("../fonts/ThirstyRoughRegTwo.otf") format("truetype");
 }
 
+/*Contenedor Prinicipal*/
 .containerUpload {
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .light-mode {
   background-color: #f0f0f0;
-  color: #333;
+  color: #000;
 }
-
 .dark-mode {
   background-color: #242424;
   color: white;
 }
 
-h1 {
+/*Titulo*/
+.title-word {
   font-family: "Veneer", sans-serif;
   font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
-  transition: color 0.3s ease;
+}
+.title-word span {
+  color: #103f91;
+}
+.light-mode .title-word {
+  color: #473524;
+}
+.dark-mode .title-word span {
+  color: #fff;
 }
 
-input[type="file"] {
-  padding: 10px;
-  margin: 15px 0;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+/*Descripción*/
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.adobe-text {
+  color: #c60b00;
+  font-weight: 600;
 }
 
-.light-mode input[type="file"] {
-  background-color: #fff;
-  color: #333;
-}
-
-.dark-mode input[type="file"] {
-  background-color: #444;
-  color: white;
-  border-color: #666;
-}
-
+/*Previsualización PDF*/
 .pdf-preview {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   height: 300px;
   border: 1px solid #ccc;
-  margin-top: 15px;
+  margin-top: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.upload-btn {
+/*Contenedor Botones*/
+.file-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 10px;
+}
+
+/*Botones*/
+.upload-btn,
+.remove-btn {
+  font-family: "Poppins", sans-serif;
   padding: 10px 15px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  width: 200px;
 }
-
-.light-mode .upload-btn {
-  background-color: #007bff;
+.upload-btn {
+  background-color: #103f91;
   color: white;
 }
 
-.dark-mode .upload-btn {
-  background-color: #0056b3;
+.remove-btn {
+  background-color: #c60b00;
   color: white;
 }
-
-.upload-btn:hover {
+.upload-btn:hover,
+.remove-btn:hover {
   transform: scale(1.05);
 }
 
-.upload-btn:active {
-  transform: scale(0.95);
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid #103f91;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
