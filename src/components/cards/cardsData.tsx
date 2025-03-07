@@ -15,7 +15,7 @@ const apps = [
     image: PDFExcel,
     title: "PDF a Excel",
     description: "Extrae directamente datos de PDF a Excel en pocos segundos.",
-    url: "https://www.google.com",
+    url: "PDFToExcel",
   },
   {
     image: PDFPowerPoint,

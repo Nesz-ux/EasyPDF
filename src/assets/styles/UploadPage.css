@@ -29,6 +29,7 @@
 }
 
 /*Titulo*/
+/*Word*/
 .title-word {
   font-family: "Veneer", sans-serif;
   font-weight: 800;
@@ -39,9 +40,26 @@
   color: #103f91;
 }
 .light-mode .title-word {
-  color: #473524;
+  color: #000;
 }
 .dark-mode .title-word span {
+  color: #fff;
+}
+
+/*Excel*/
+.title-excel {
+  font-family: "Veneer", sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.title-excel span {
+  color: #185C37;
+}
+.light-mode .title-excel {
+  color: #000;
+}
+.dark-mode .title-excel span {
   color: #fff;
 }
 
@@ -122,7 +140,7 @@ p {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border-bottom: 4px solid #103f91;
+  border-bottom: 4px solid #6A2C75;
   border-left: 4px solid transparent;
 }
 @keyframes rotation {
