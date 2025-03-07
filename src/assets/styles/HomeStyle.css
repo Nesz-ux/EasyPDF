@@ -34,9 +34,15 @@
   font-family: "Veneer", sans-serif;
   font-weight: 800;
   font-size: 3rem;
-  margin-bottom: 22px;
-  margin-left: 5px;
+  margin-bottom: 30px;
+  margin-left: 7px;
   transition: color 0.3s ease;
+}
+.light-mode .title {
+  color: #6A2C75;
+}
+.dark-mode .title {
+  color: #FFF;
 }
 
 .title-container {
