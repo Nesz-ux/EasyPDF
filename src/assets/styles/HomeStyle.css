@@ -39,10 +39,10 @@
   transition: color 0.3s ease;
 }
 .light-mode .title {
-  color: #6A2C75;
+  color: #6a2c75;
 }
 .dark-mode .title {
-  color: #FFF;
+  color: #fff;
 }
 
 .title-container {

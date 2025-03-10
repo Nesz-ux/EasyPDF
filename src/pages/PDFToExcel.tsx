@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../assets/styles/UploadPage.css";
-import { API_BASE_URL } from "../utils/config";
 import InputFile from "../components/inputFile/inputFilePDF/inputFile";
+import { uploadFileConvertExcel } from "../utils/convertPDFFunctions";
 
 const PDFToWord: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -48,52 +48,14 @@ const PDFToWord: React.FC = () => {
     setPreviewURL(null);
   };
 
-  const handleUpload = async () => {
-    if (!file) {
-      alert("Por favor selecciona un archivo antes de subir.");
-      return;
-    }
-
+  const handleUploadToExcel = async () => {
+    if (!file) return;
     setLoading(true);
-    const formData = new FormData();
-    formData.append("file", file);
+    const success = await uploadFileConvertExcel(file, "convertExcel");
 
-    // Obtener el nombre original sin extensión
-    const originalFileName = file.name.split(".").slice(0, -1).join(".");
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/convertExcel`, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-
-        // Usar el mismo nombre del archivo original pero con .docx
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `${originalFileName}.xlsx`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        setFile(null);
-        setPreviewURL(null);
-      } else {
-        const errorResponse = await response.json();
-        alert(
-          `Error al convertir el archivo: ${
-            errorResponse.error || "Error desconocido"
-          }`
-        );
-      }
-    } catch (error) {
-      console.error("Error al subir el archivo", error);
-      alert("Hubo un problema al procesar el archivo.");
-    } finally {
-      setLoading(false);
+    if (success) {
+      setFile(null);
+      setPreviewURL(null);
     }
   };
 
@@ -103,8 +65,7 @@ const PDFToWord: React.FC = () => {
         Convierte PDF a <span>Excel</span>{" "}
       </h1>
       <p>
-      Convierte datos en PDF a tablas EXCEL. Con la tecnología
-        de
+        Convierte datos en PDF a tablas EXCEL. Con la tecnología de
         <span className="adobe-text"> Adobe Acrobat.</span>
       </p>
       {previewURL && (
@@ -117,16 +78,13 @@ const PDFToWord: React.FC = () => {
       )}
 
       {!file ? (
-        <div  style={{ backgroundColor: "#185C37" }}>
-        <InputFile 
-        onFileSelect={handleFileChange} />
+        <div style={{ backgroundColor: "#185C37" }}>
+          <InputFile onFileSelect={handleFileChange} />
         </div>
       ) : (
         <div className="file-actions">
           {loading ? (
-            <div
-              className="loader"
-            ></div>
+            <div className="loader"></div>
           ) : (
             <>
               <button onClick={handleRemoveFile} className="remove-btn">
@@ -137,7 +95,7 @@ const PDFToWord: React.FC = () => {
                 style={{
                   backgroundColor: "#185C37",
                 }}
-                onClick={handleUpload}
+                onClick={handleUploadToExcel}
                 className="upload-btn"
                 disabled={loading || !file}
               >
@@ -147,8 +105,7 @@ const PDFToWord: React.FC = () => {
           )}
         </div>
       )}
-      <div
-      ></div>
+      <div></div>
     </div>
   );
 };

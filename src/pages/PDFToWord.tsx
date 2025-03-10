@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../assets/styles/UploadPage.css";
-import { API_BASE_URL } from "../utils/config";
 import InputFile from "../components/inputFile/inputFilePDF/inputFile";
+import { uploadFileConvertWord } from "../utils/convertPDFFunctions";
 
 const PDFToWord: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -48,58 +48,24 @@ const PDFToWord: React.FC = () => {
     setPreviewURL(null);
   };
 
-  const handleUpload = async () => {
-    if (!file) {
-      alert("Por favor selecciona un archivo antes de subir.");
-      return;
-    }
-
+  const handleUploadToWord = async () => {
+    if (!file) return;
     setLoading(true);
-    const formData = new FormData();
-    formData.append("file", file);
+    const success = await uploadFileConvertWord(file, "convertWord");
 
-    // Obtener el nombre original sin extensión
-    const originalFileName = file.name.split(".").slice(0, -1).join(".");
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/convertWord`, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-
-        // Usar el mismo nombre del archivo original pero con .docx
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `${originalFileName}.docx`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url); 
-        setFile(null);
-    setPreviewURL(null);
-      } else {
-        const errorResponse = await response.json();
-        alert(
-          `Error al convertir el archivo: ${
-            errorResponse.error || "Error desconocido"
-          }`
-        );
-      }
-    } catch (error) {
-      console.error("Error al subir el archivo", error);
-      alert("Hubo un problema al procesar el archivo.");
-    } finally {
-      setLoading(false);
+    if (success) {
+      setFile(null);
+      setPreviewURL(null);
     }
+
+    setLoading(false);
   };
 
   return (
     <div className={`containerUpload ${darkMode ? "dark-mode" : "light-mode"}`}>
-      <h1 className="title-word">Convierte PDF a <span>Word</span> </h1>
+      <h1 className="title-word">
+        Convierte PDF a <span>Word</span>{" "}
+      </h1>
       <p>
         Convierte tus PDF a WORD con una precisión increíble. Con la tecnología
         de
@@ -113,7 +79,7 @@ const PDFToWord: React.FC = () => {
           style={{ width: "100%", height: "500px", border: "none" }}
         />
       )}
-  
+
       {!file ? (
         <InputFile onFileSelect={handleFileChange} />
       ) : (
@@ -126,9 +92,9 @@ const PDFToWord: React.FC = () => {
               <button onClick={handleRemoveFile} className="remove-btn">
                 Cancelar
               </button>
-  
+
               <button
-                onClick={handleUpload}
+                onClick={handleUploadToWord}
                 className="upload-btn"
                 disabled={loading || !file}
               >
@@ -140,7 +106,6 @@ const PDFToWord: React.FC = () => {
       )}
     </div>
   );
-  
 };
 
 export default PDFToWord;
