@@ -22,12 +22,12 @@
 }
 
 .light-mode .custom-file-upload {
-    background-color: #103f91;
+    background-color: #6A2C75;
     color: white;
 }
 
 .light-mode .custom-file-upload:hover {
-    background-color: #3e6cbb;
+    background-color: #954ea1;
 }
 
 .dark-mode .custom-file-upload {

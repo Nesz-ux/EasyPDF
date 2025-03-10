@@ -103,7 +103,7 @@ const PDFToWord: React.FC = () => {
         Convierte PDF a <span>Excel</span>{" "}
       </h1>
       <p>
-        Convierte tus PDF a WORD con una precisión increíble. Con la tecnología
+      Convierte datos en PDF a tablas EXCEL. Con la tecnología
         de
         <span className="adobe-text"> Adobe Acrobat.</span>
       </p>
@@ -117,13 +117,14 @@ const PDFToWord: React.FC = () => {
       )}
 
       {!file ? (
-        <InputFile onFileSelect={handleFileChange} />
+        <div  style={{ backgroundColor: "#185C37" }}>
+        <InputFile 
+        onFileSelect={handleFileChange} />
+        </div>
       ) : (
         <div className="file-actions">
-          {/* Mostrar el loader si está cargando */}
           {loading ? (
             <div
-              style={{ borderBottom: "4px solid #185C37" }}
               className="loader"
             ></div>
           ) : (
@@ -146,6 +147,8 @@ const PDFToWord: React.FC = () => {
           )}
         </div>
       )}
+      <div
+      ></div>
     </div>
   );
 };

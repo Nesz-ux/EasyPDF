@@ -54,7 +54,7 @@
   margin-bottom: 20px;
 }
 .title-excel span {
-  color: #185C37;
+  color: #185c37;
 }
 .light-mode .title-excel {
   color: #000;
@@ -120,19 +120,18 @@ p {
   transform: scale(1.05);
 }
 
-
 .loader {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   display: inline-block;
-  border-top: 4px solid #FFF;
+  border-top: 4px solid #fff;
   border-right: 4px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
 .loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -140,7 +139,7 @@ p {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border-bottom: 4px solid #6A2C75;
+  border-bottom: 4px solid #6a2c75;
   border-left: 4px solid transparent;
 }
 @keyframes rotation {
@@ -150,4 +149,4 @@ p {
   100% {
     transform: rotate(360deg);
   }
-} 
+}
