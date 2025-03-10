@@ -98,13 +98,13 @@ p {
 .upload-btn,
 .remove-btn {
   font-family: "Poppins", sans-serif;
-  padding: 10px 15px;
+  padding: 10px 10px;
   font-size: 1.2rem;
   border: none;
   border-radius: 15px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
-  width: 200px;
+  width: 250px;
 }
 .upload-btn {
   background-color: #103f91;
