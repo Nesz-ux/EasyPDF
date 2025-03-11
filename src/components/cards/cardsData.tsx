@@ -29,7 +29,7 @@ const apps = [
     title: "PDF a JPG",
     description:
       "Extrae todas las imágenes que están dentro de un PDF o convierte cada página en una imagen JPG.",
-    url: "https://www.google.com",
+    url: "PDFToJPG",
   },
 ];
 
