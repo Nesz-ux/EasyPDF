@@ -64,7 +64,7 @@ const PDFToWord: React.FC = () => {
   return (
     <div className={`containerUpload ${darkMode ? "dark-mode" : "light-mode"}`}>
       <h1 className="title-word">
-        Convierte PDF a <span>Word</span>{" "}
+        Convierte PDF a <span style={{ color: "#103f91" }}>Word</span>{" "}
       </h1>
       <p>
         Convierte tus PDF a WORD con una precisión increíble. Con la tecnología

@@ -51,7 +51,10 @@ const PDFToPowerPoint: React.FC = () => {
   const handleUploadToPowerPoint = async () => {
     if (!file) return;
     setLoading(true);
-    const success = await uploadFileConvertPowerPoint(file, "convertPowerPoint");
+    const success = await uploadFileConvertPowerPoint(
+      file,
+      "convertPowerPoint"
+    );
 
     if (success) {
       setFile(null);
@@ -64,7 +67,7 @@ const PDFToPowerPoint: React.FC = () => {
   return (
     <div className={`containerUpload ${darkMode ? "dark-mode" : "light-mode"}`}>
       <h1 className="title-word">
-        Convierte PDF a <span style={{color:"#D04423"}}>Power Point</span>{" "}
+        Convierte PDF a <span style={{ color: "#D04423" }}>Power Point</span>{" "}
       </h1>
       <p>
         Convierte tus PDF a WORD con una precisión increíble. Con la tecnología

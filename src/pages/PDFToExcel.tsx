@@ -61,8 +61,8 @@ const PDFToWord: React.FC = () => {
 
   return (
     <div className={`containerUpload ${darkMode ? "dark-mode" : "light-mode"}`}>
-      <h1 className="title-excel">
-        Convierte PDF a <span>Excel</span>{" "}
+      <h1 className="title-word">
+        Convierte PDF a <span style={{ color: "#185c37" }}>Excel</span>{" "}
       </h1>
       <p>
         Convierte datos en PDF a tablas EXCEL. Con la tecnología de

@@ -29,7 +29,6 @@
 }
 
 /*Titulo*/
-/*Word*/
 .title-word {
   font-family: "Veneer", sans-serif;
   font-weight: 800;
@@ -43,23 +42,6 @@
   color: #000;
 }
 .dark-mode .title-word span {
-  color: #fff;
-}
-
-/*Excel*/
-.title-excel {
-  font-family: "Veneer", sans-serif;
-  font-weight: 800;
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-.title-excel span {
-  color: #185c37;
-}
-.light-mode .title-excel {
-  color: #000;
-}
-.dark-mode .title-excel span {
   color: #fff;
 }
 

@@ -31,11 +31,11 @@
 }
 
 .light-mode .card:hover {
-  background-color: #6A2C75;
-  color: #FFF;
+  background-color: #6a2c75;
+  color: #fff;
 }
 .dark-mode .card:hover {
-  background-color: #FFFF;
+  background-color: #ffff;
   color: #000;
 }
 

@@ -220,7 +220,6 @@ export const uploadPDFConvertToJPG = async (
     }
 
     const data = await response.json();
-    console.log("Data:", data);
 
     if (!data.outputFilePaths || data.outputFilePaths.length === 0) {
       alert("Error: No se recibieron imágenes convertidas.");
@@ -229,22 +228,34 @@ export const uploadPDFConvertToJPG = async (
 
     // Descargar imágenes consecutivas
     for (const imageUrl of data.outputFilePaths) {
-      const imageResponse = await fetch(imageUrl);
+      const fullImageUrl = `${API_BASE_URL}/uploads/${imageUrl.replace(
+        /^\/+/,
+        ""
+      )}`;
+
+      const imageResponse = await fetch(fullImageUrl);
       if (!imageResponse.ok) {
-        console.warn(`Error al descargar la imagen: ${imageUrl}`);
-        continue; // Si falla, pasa al siguiente archivo
+        console.warn(`Error al descargar la imagen|: ${fullImageUrl}`);
+        continue;
       }
 
       const blob = await imageResponse.blob();
+
+      if (!blob.size) {
+        console.error(`Imagen vacía: ${fullImageUrl}`);
+        continue;
+      }
+
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = imageUrl.split("/").pop() || "imagen.jpeg"; // Usa el nombre de archivo original
+      a.download = imageUrl.split("/").pop() || "imagen.jpeg";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
+
     return true;
   } catch (error) {
     console.error("Error al subir el archivo", error);
