@@ -25,7 +25,7 @@ const Home: React.FC = () => {
   const [favorites, setFavorites] = useState<App[]>([]);
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [apps, setApps] = useState<App[]>(appsData);
+  const [apps] = useState<App[]>(appsData);
 
   // Cargar estado inicial desde localStorage
   useEffect(() => {
